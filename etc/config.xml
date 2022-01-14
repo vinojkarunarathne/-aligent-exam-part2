@@ -20,6 +20,12 @@
 			<general>
 				<enabled>1</enabled>
 			</general>
+            <email>
+                <sender_name>Live Chat</sender_name>
+                <sender_email>livechat@example.com</sender_email>
+                <email_template>livechat_email_email_template</email_template>
+                <recipient_email>antonvinoj@gmail.com</recipient_email>
+            </email>
 		</livechat>
 	</default>
 </config>

@@ -26,22 +26,42 @@ interface ConfigInterface
     /**
      * Enabled config path
      */
-    const XML_PATH_GENERAL_ENABLED  = 'livechat/general/enabled';
+    const XML_PATH_GENERAL_ENABLED          = 'livechat/general/enabled';
 
     /**
      * license config path
      */
-    const XML_PATH_GENERAL_LICENCE  = 'livechat/general/license';
+    const XML_PATH_GENERAL_LICENCE          = 'livechat/general/license';
 
     /**
      * advanced group config path
      */
-    const XML_PATH_ADVANCED_GROUP   = 'livechat/advanced/group';
+    const XML_PATH_ADVANCED_GROUP           = 'livechat/advanced/group';
 
     /**
      * advanced params config path
      */
-    const XML_PATH_ADVANCED_PARAMS  = 'livechat/advanced/params';
+    const XML_PATH_ADVANCED_PARAMS          = 'livechat/advanced/params';
+
+    /**
+     * sender name config path
+     */
+    const XML_PATH_EMAIL_SENDER_NAME        = 'livechat/email/sender_name';
+
+    /**
+     * sender email config path
+     */
+    const XML_PATH_EMAIL_SENDER_EMAIL       = 'livechat/email/sender_email';
+
+    /**
+     * recipient email config path
+     */
+    const XML_PATH_EMAIL_RECIPIENT_EMAIL    = 'livechat/email/recipient_email';
+
+    /**
+     * email template config path
+     */
+    const XML_PATH_EMAIL_TEMPLATE           = 'livechat/email/email_template';
 
     /**
      * Check if Aligent LiveChat module is enabled
@@ -70,6 +90,35 @@ interface ConfigInterface
      * @return mixed
      */
     public function getLiveChatAdvancedParams();
+
+    /**
+     * Get sender name config value
+     *
+     * @return mixed
+     */
+    public function getSenderName();
+
+    /**
+     * Get sender email config value
+     *
+     * @return mixed
+     */
+    public function getSenderEmail();
+
+    /**
+     * Get recipient email config value
+     *
+     * @return mixed
+     */
+    public function getRecipientEmail();
+
+    /**
+     * Get email template config value
+     *
+     * @return mixed
+     */
+    public function getEmailTemplate();
+
     /**
      * Set license config value
      *

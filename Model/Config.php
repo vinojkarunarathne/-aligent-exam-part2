@@ -86,7 +86,7 @@ class Config implements ConfigInterface
      */
     public function getLiveChatLicense()
     {
-        return $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->getValue(
             self::XML_PATH_GENERAL_LICENCE,
             ScopeInterface::SCOPE_STORE
         );
@@ -99,7 +99,7 @@ class Config implements ConfigInterface
      */
     public function getLiveChatAdvancedGroup()
     {
-        return $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->getValue(
             self::XML_PATH_ADVANCED_GROUP,
             ScopeInterface::SCOPE_STORE
         );
@@ -112,8 +112,60 @@ class Config implements ConfigInterface
      */
     public function getLiveChatAdvancedParams()
     {
-        return $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->getValue(
             self::XML_PATH_ADVANCED_PARAMS,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Get sender name config value
+     *
+     * @return mixed
+     */
+    public function getSenderName()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_EMAIL_SENDER_NAME,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Get sender email config value
+     *
+     * @return mixed
+     */
+    public function getSenderEmail()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_EMAIL_SENDER_EMAIL,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Get recipient email config value
+     *
+     * @return mixed
+     */
+    public function getRecipientEmail()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_EMAIL_RECIPIENT_EMAIL,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Get email template config value
+     *
+     * @return mixed
+     */
+    public function getEmailTemplate()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_EMAIL_TEMPLATE,
             ScopeInterface::SCOPE_STORE
         );
     }

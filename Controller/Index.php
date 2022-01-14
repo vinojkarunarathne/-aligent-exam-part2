@@ -16,6 +16,7 @@
 namespace Aligent\LiveChat\Controller;
 
 use Aligent\LiveChat\Model\ConfigInterface as LiveChatConfigInterface;
+use Aligent\LiveChat\Model\SendEmailToAdmin;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Exception\NotFoundException;
@@ -32,16 +33,24 @@ abstract class Index extends \Magento\Framework\App\Action\Action
     protected $liveChatConfigInterface;
 
     /**
+     * @var SendEmailToAdmin
+     */
+    protected $sendEmailToAdmin;
+
+    /**
      * Index constructor.
      * @param Context $context
      * @param LiveChatConfigInterface $liveChatConfigInterface
+     * @param SendEmailToAdmin $sendEmailToAdmin
      */
     public function __construct(
         Context $context,
-        LiveChatConfigInterface $liveChatConfigInterface
+        LiveChatConfigInterface $liveChatConfigInterface,
+        SendEmailToAdmin $sendEmailToAdmin
     ) {
         parent::__construct($context);
         $this->liveChatConfigInterface = $liveChatConfigInterface;
+        $this->sendEmailToAdmin = $sendEmailToAdmin;
     }
 
     /**
