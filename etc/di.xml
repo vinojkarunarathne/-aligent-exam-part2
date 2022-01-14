@@ -16,4 +16,19 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Aligent\LiveChat\Model\ConfigInterface" type="Aligent\LiveChat\Model\Config" />
+    <preference for="Aligent\LiveChat\Api\Data\LiveChatLogInterface" type="Aligent\LiveChat\Model\LiveChatLog"/>
+
+    <virtualType name="Aligent\LiveChat\Model\ResourceModel\LiveChatLog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">aligent_livechat_log</argument>
+            <argument name="resourceModel" xsi:type="string">Aligent\LiveChat\Model\ResourceModel\LiveChatLog\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="aligent_livechat_logs_listing_data_source" xsi:type="string">Aligent\LiveChat\Model\ResourceModel\LiveChatLog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

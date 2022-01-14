@@ -20,6 +20,7 @@ use Aligent\LiveChat\Model\LiveChatLog as LiveChatLogModel;
 use Aligent\LiveChat\Model\SendEmailToAdmin;
 use Magento\Backend\App\Action;
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\View\Result\PageFactory;
 
 /**
  * Class Index
@@ -45,21 +46,29 @@ class Index extends Action
     protected $liveChatLogModel;
 
     /**
+     * @var PageFactory
+     */
+    protected $resultPageFactory;
+
+    /**
      * Index constructor.
      * @param Action\Context $context
      * @param LiveChatConfigInterface $liveChatConfigInterface
      * @param SendEmailToAdmin $sendEmailToAdmin
      * @param LiveChatLogModel $liveChatLogModel
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
         Action\Context          $context,
         LiveChatConfigInterface $liveChatConfigInterface,
         SendEmailToAdmin        $sendEmailToAdmin,
-        LiveChatLogModel        $liveChatLogModel
+        LiveChatLogModel        $liveChatLogModel,
+        PageFactory             $resultPageFactory
     ) {
         $this->liveChatConfigInterface = $liveChatConfigInterface;
         $this->sendEmailToAdmin = $sendEmailToAdmin;
         $this->liveChatLogModel = $liveChatLogModel;
+        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
@@ -86,6 +95,13 @@ class Index extends Action
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         }
+
+        $resultPage = $this->resultPageFactory->create();
+        /**
+         * Set active menu item
+         */
+        $resultPage->setActiveMenu('Aligent_LiveChat::admin_form');
+        $resultPage->getConfig()->getTitle()->prepend(__('Live Chat'));
         $this->_view->loadLayout();
         $this->_view->renderLayout();
     }

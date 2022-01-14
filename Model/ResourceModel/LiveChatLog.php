@@ -24,6 +24,8 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 class LiveChatLog extends AbstractDb
 {
 
+    protected $_idFieldName = 'livechat_log_id';
+
     /**
      * Define main table
      */
