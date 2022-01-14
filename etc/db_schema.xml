@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2022 Aligent Consulting. All rights reserved.
+ * https://www.aligent.com.au/
+ */
+
+/**
+ * @category Aligent
+ * @package  Aligent_LiveChat
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *
+ *
+ * @author   Anton Vinoj<antonvinoj@gmail.com>
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="aligent_livechat_log" resource="default" engine="innodb" comment="Aligent Livechat Log">
+        <column xsi:type="int" name="livechat_log_id" nullable="false" unsigned="true" padding="10" identity="true" comment="Livechat Log Id"/>
+        <column xsi:type="mediumtext" name="livechat_license_number" comment="Livechat License Number"/>
+        <column xsi:type="mediumtext" name="livechat_groups" comment="Livechat Groups"/>
+        <column xsi:type="mediumtext" name="livechat_params" comment="Livechat Params"/>
+        <column xsi:type="mediumtext" name="router" comment="Router Type"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="livechat_log_id"/>
+        </constraint>
+    </table>
+</schema>

@@ -236,18 +236,24 @@ class Config implements ConfigInterface
      */
     public function setLiveChatFormDataToConfigurations($liveChatFormData)
     {
-        $livechatLicenseNumber = isset($liveChatFormData['livechat-license-number']) ? $liveChatFormData['livechat-license-number'] : '';
-        $livechatGroups = isset($liveChatFormData['livechat-groups']) ? $liveChatFormData['livechat-groups'] : '';
-        $livechatParams = isset($liveChatFormData['livechat-params']) ? $liveChatFormData['livechat-params'] : '';
+        $liveChatLicenseNumber = isset($liveChatFormData['livechat-license-number']) ? $liveChatFormData['livechat-license-number'] : '';
+        $liveChatGroups = isset($liveChatFormData['livechat-groups']) ? $liveChatFormData['livechat-groups'] : '';
+        $liveChatParams = isset($liveChatFormData['livechat-params']) ? $liveChatFormData['livechat-params'] : '';
 
         // set Livechat License Number
-        $this->setLiveChatLicense($livechatLicenseNumber);
+        if ($liveChatLicenseNumber) {
+            $this->setLiveChatLicense($liveChatLicenseNumber);
+        }
 
         // set Livechat Groups
-        $this->setLiveChatAdvancedGroup($livechatGroups);
+        if ($liveChatGroups) {
+            $this->setLiveChatAdvancedGroup($liveChatGroups);
+        }
 
         // set Livechat License Number
-        $this->setLiveChatAdvancedParams($livechatParams);
+        if ($liveChatParams) {
+            $this->setLiveChatAdvancedParams($liveChatParams);
+        }
 
         // clear configuration cache
         $this->cacheCleanByTags();

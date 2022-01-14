@@ -25,7 +25,7 @@
                 <resource id="Magento_Backend::stores">
 					<resource id="Magento_Backend::stores_settings">
 						<resource id="Magento_Config::config">
-							<resource id="Aligent_LiveChat::configuration" sortOrder="10" title="Aligent Livechat Configurations"/>
+							<resource id="Aligent_LiveChat::configuration" sortOrder="10" title="Livechat Configurations"/>
 						</resource>
 					</resource>
 				</resource>

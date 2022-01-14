@@ -25,6 +25,8 @@ use Magento\Framework\Exception\LocalizedException;
  */
 class Post extends \Aligent\LiveChat\Controller\Index implements HttpPostActionInterface
 {
+    const ROUTER_TYPE  = 'Frontend';
+
     /**
      * @return \Magento\Framework\App\ResponseInterface|Redirect|\Magento\Framework\Controller\ResultInterface
      */
@@ -42,6 +44,9 @@ class Post extends \Aligent\LiveChat\Controller\Index implements HttpPostActionI
 
             // Send Live Chat Email Notification to Admin
             $this->sendEmailToAdmin->sendEmailToAdmin($liveChatFormData);
+
+            // Save Live Chat Form Data to aligent_livechat_log table
+            $this->liveChatLogModel->saveLiveChatLogs($liveChatFormData, self::ROUTER_TYPE);
 
             $this->messageManager->addSuccessMessage(
                 __('Live Chat Form Has been submitted. Live Chat Configurations has been updated')
