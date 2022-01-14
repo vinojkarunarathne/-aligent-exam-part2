@@ -1,0 +1,77 @@
+<?php
+/**
+ * Copyright © 2022 Aligent Consulting. All rights reserved.
+ * https://www.aligent.com.au/
+ */
+
+/**
+ * @category Aligent
+ * @package  Aligent_LiveChat
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *
+ *
+ * @author   Anton Vinoj<antonvinoj@gmail.com>
+ */
+
+/** @var \Aligent\LiveChat\Block\LiveChatForm $block */
+?>
+<form class="form livechat"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="livechat-form"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Live Chat Form')) ?></span></legend><br />
+        <div class="field livechat-license-number required">
+            <label class="label" for="livechat-license-number"><span><?= $block->escapeHtml(__('Livechat License Number')) ?></span></label>
+            <div class="control">
+                <input name="livechat-license-number"
+                       id="livechat-license-number"
+                       title="<?= $block->escapeHtmlAttr(__('Livechat License Number')) ?>"
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field livechat-groups required">
+            <label class="label" for="livechat-groups"><span><?= $block->escapeHtml(__('Livechat Groups')) ?></span></label>
+            <div class="control">
+                <input name="livechat-groups"
+                       id="livechat-groups"
+                       title="<?= $block->escapeHtmlAttr(__('Livechat Groups')) ?>"
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field livechat-params required">
+            <label class="label" for="livechat-params"><span><?= $block->escapeHtml(__('Livechat Params')) ?></span></label>
+            <div class="control">
+                <input name="livechat-params"
+                       id="livechat-params"
+                       title="<?= $block->escapeHtmlAttr(__('Livechat Params')) ?>"
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "livechat-form"
+            }
+        }
+    }
+</script>

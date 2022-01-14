@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2022 Aligent Consulting. All rights reserved.
+ * https://www.aligent.com.au/
+ */
+
+/**
+ * @category Aligent
+ * @package  Aligent_LiveChat
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *
+ *
+ * @author   Anton Vinoj<antonvinoj@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="aligent" sortOrder="50">
+            <label>Aligent Extensions</label>
+        </tab>
+        <section id="livechat" translate="label" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Livechat</label>
+            <tab>aligent</tab>
+            <resource>Aligent_LiveChat::configuration</resource>
+            <group id="general" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[<strong>General</strong>]]></label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="license" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>License</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="advanced" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[<strong>Advanced</strong>]]></label>
+                <field id="group" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Group</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="params" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Params</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="email" translate="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[<strong>Email</strong>]]></label>
+                <field id="sender_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender Name</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sender_email" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sender Email</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="recipient_email" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Send Email To</label>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="email_template" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="livechat/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

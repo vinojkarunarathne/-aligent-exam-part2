@@ -1,0 +1,30 @@
+{
+  "name": "aligent/module-livechat",
+  "description": "Aligent Livechat Magento 2 Module for Exam Part 2",
+  "type": "magento2-module",
+  "version": "2.43.0",
+  "require": {
+    "php": "~7.2.0||~7.3.0||~7.4.0",
+    "magento/framework": "*"
+  },
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Anton Vinoj",
+      "email": "antonvinoj@gmail.com",
+      "homepage": "https://www.aligent.com.au/",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Aligent\\LiveChat\\": ""
+    }
+  }
+}

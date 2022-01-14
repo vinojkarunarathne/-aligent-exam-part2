@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Copyright © 2022 Aligent Consulting. All rights reserved.
+ * https://www.aligent.com.au/
+ */
+
+/**
+ * @category Aligent
+ * @package  Aligent_LiveChat
+ * @license  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *
+ *
+ * @author   Anton Vinoj<antonvinoj@gmail.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+                <resource id="Aligent_LiveChat::menu" title="Aligent Menu" translate="title" sortOrder="69">
+                    <resource id="Aligent_LiveChat::admin_form" sortOrder="1" translate="title" title="Livechat Admin Form"/>
+                    <resource id="Aligent_LiveChat::manage_logs" sortOrder="2" translate="title" title="Manage Livechat Logs"/>
+                    <resource id="Aligent_LiveChat::config_menu" sortOrder="3" translate="title" title="Livechat Configurations"/>
+                </resource>
+                <resource id="Magento_Backend::stores">
+					<resource id="Magento_Backend::stores_settings">
+						<resource id="Magento_Config::config">
+							<resource id="Aligent_LiveChat::configuration" sortOrder="10" title="Livechat Configurations"/>
+						</resource>
+					</resource>
+				</resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,14 @@
+{
+    "aligent_livechat_log": {
+        "column": {
+            "livechat_log_id": true,
+            "livechat_license_number": true,
+            "livechat_groups": true,
+            "livechat_params": true,
+            "router": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
