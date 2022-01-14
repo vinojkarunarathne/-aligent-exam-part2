@@ -98,4 +98,12 @@ interface ConfigInterface
      * @return mixed
      */
     public function cacheCleanByTags();
+
+    /**
+     * Set Live Chat Form Data to Configurations
+     *
+     * @param $liveChatFormData
+     * @return mixed
+     */
+    public function setLiveChatFormDataToConfigurations($liveChatFormData);
 }

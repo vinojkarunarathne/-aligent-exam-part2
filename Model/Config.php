@@ -15,11 +15,11 @@
 
 namespace Aligent\LiveChat\Model;
 
+use Magento\Framework\App\Cache\Frontend\Pool;
+use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Framework\App\Cache\Frontend\Pool;
-use Magento\Framework\App\Cache\TypeListInterface;
 
 /**
  * Aligent LiveChat module configuration
@@ -174,5 +174,30 @@ class Config implements ConfigInterface
         foreach ($this->cacheFrontendPool as $cacheFrontend) {
             $cacheFrontend->getBackend()->clean();
         }
+    }
+
+    /**
+     * Set Live Chat Form Data to Configurations
+     *
+     * @param $liveChatFormData
+     * @return mixed|void
+     */
+    public function setLiveChatFormDataToConfigurations($liveChatFormData)
+    {
+        $livechatLicenseNumber = isset($liveChatFormData['livechat-license-number']) ? $liveChatFormData['livechat-license-number'] : '';
+        $livechatGroups = isset($liveChatFormData['livechat-groups']) ? $liveChatFormData['livechat-groups'] : '';
+        $livechatParams = isset($liveChatFormData['livechat-params']) ? $liveChatFormData['livechat-params'] : '';
+
+        // set Livechat License Number
+        $this->setLiveChatLicense($livechatLicenseNumber);
+
+        // set Livechat Groups
+        $this->setLiveChatAdvancedGroup($livechatGroups);
+
+        // set Livechat License Number
+        $this->setLiveChatAdvancedParams($livechatParams);
+
+        // clear configuration cache
+        $this->cacheCleanByTags();
     }
 }

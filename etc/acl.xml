@@ -19,7 +19,8 @@
 		<resources>
 			<resource id="Magento_Backend::admin">
                 <resource id="Aligent_LiveChat::menu" title="Aligent Menu" translate="title" sortOrder="69">
-                    <resource id="Aligent_LiveChat::config_menu" sortOrder="10" translate="title" title="Aligent Livechat Settings"/>
+                    <resource id="Aligent_LiveChat::admin_form" sortOrder="1" translate="title" title="Livechat Admin Form"/>
+                    <resource id="Aligent_LiveChat::config_menu" sortOrder="2" translate="title" title="Livechat Configurations"/>
                 </resource>
                 <resource id="Magento_Backend::stores">
 					<resource id="Magento_Backend::stores_settings">

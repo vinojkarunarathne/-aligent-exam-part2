@@ -37,10 +37,10 @@ class Post extends \Aligent\LiveChat\Controller\Index implements HttpPostActionI
         }
         try {
             // Validate Live Chat Form & Get Form Data
-            $liveChatFormdata = $this->validatedParams();
+            $liveChatFormData = $this->validatedParams();
 
             // Set Live Chat Form Data to Configurations
-            $this->setLiveChatFormDataToConfigurations($liveChatFormdata);
+            $this->liveChatConfigInterface->setLiveChatFormDataToConfigurations($liveChatFormData);
 
             $this->messageManager->addSuccessMessage(
                 __('Live Chat Form Has been submitted. Live Chat Configurations has been updated')
@@ -75,29 +75,5 @@ class Post extends \Aligent\LiveChat\Controller\Index implements HttpPostActionI
         }
 
         return $request->getParams();
-    }
-
-    /**
-     * Set Live Chat Form Data to Configurations
-     *
-     * @param $liveChatFormdata
-     */
-    private function setLiveChatFormDataToConfigurations($liveChatFormdata)
-    {
-        $livechatLicenseNumber = isset($liveChatFormdata['livechat-license-number']) ? $liveChatFormdata['livechat-license-number'] : '';
-        $livechatGroups = isset($liveChatFormdata['livechat-groups']) ? $liveChatFormdata['livechat-groups'] : '';
-        $livechatParams = isset($liveChatFormdata['livechat-params']) ? $liveChatFormdata['livechat-params'] : '';
-
-        // set Livechat License Number
-        $this->liveChatConfigInterface->setLiveChatLicense($livechatLicenseNumber);
-
-        // set Livechat Groups
-        $this->liveChatConfigInterface->setLiveChatAdvancedGroup($livechatGroups);
-
-        // set Livechat License Number
-        $this->liveChatConfigInterface->setLiveChatAdvancedParams($livechatParams);
-
-        // clear configuration cache
-        $this->liveChatConfigInterface->cacheCleanByTags();
     }
 }

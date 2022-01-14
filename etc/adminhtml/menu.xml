@@ -17,6 +17,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
 	<menu>
         <add id="Aligent_LiveChat::menu" title="Aligent" translate="title" module="Aligent_LiveChat" sortOrder="60" resource="Aligent_LiveChat::menu"/>
-		<add id="Aligent_LiveChat::config_menu" title="Aligent LiveChat Settings" module="Aligent_LiveChat" parent="Aligent_LiveChat::menu" sortOrder="60" resource="Aligent_LiveChat::config_menu"  action="adminhtml/system_config/edit/section/livechat"/>
+        <add id="Aligent_LiveChat::admin_form" title="LiveChat Admin Form" module="Aligent_LiveChat" parent="Aligent_LiveChat::menu" sortOrder="1" resource="Aligent_LiveChat::admin_form"  action="livechat/form"/>
+		<add id="Aligent_LiveChat::config_menu" title="LiveChat Configurations" module="Aligent_LiveChat" parent="Aligent_LiveChat::menu" sortOrder="2" resource="Aligent_LiveChat::config_menu"  action="adminhtml/system_config/edit/section/livechat"/>
 	</menu>
 </config>
