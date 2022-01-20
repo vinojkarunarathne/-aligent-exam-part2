@@ -18,19 +18,19 @@
 	<acl>
 		<resources>
 			<resource id="Magento_Backend::admin">
-                <resource id="Aligent_LiveChat::menu" title="Aligent Menu" translate="title" sortOrder="69">
-                    <resource id="Aligent_LiveChat::admin_form" sortOrder="1" translate="title" title="Livechat Admin Form"/>
-                    <resource id="Aligent_LiveChat::manage_logs" sortOrder="2" translate="title" title="Manage Livechat Logs"/>
-                    <resource id="Aligent_LiveChat::config_menu" sortOrder="3" translate="title" title="Livechat Configurations"/>
-                </resource>
-                <resource id="Magento_Backend::stores">
+                		<resource id="Aligent_LiveChat::menu" title="Aligent Menu" translate="title" sortOrder="69">
+                    			<resource id="Aligent_LiveChat::admin_form" sortOrder="1" translate="title" title="Livechat Admin Form"/>
+                    			<resource id="Aligent_LiveChat::manage_logs" sortOrder="2" translate="title" title="Manage Livechat Logs"/>
+                    			<resource id="Aligent_LiveChat::config_menu" sortOrder="3" translate="title" title="Livechat Configurations"/>
+				</resource>
+                		<resource id="Magento_Backend::stores">
 					<resource id="Magento_Backend::stores_settings">
 						<resource id="Magento_Config::config">
 							<resource id="Aligent_LiveChat::configuration" sortOrder="10" title="Livechat Configurations"/>
 						</resource>
 					</resource>
 				</resource>
-            </resource>
-        </resources>
-    </acl>
+            		</resource>
+        	</resources>
+	</acl>
 </config>
